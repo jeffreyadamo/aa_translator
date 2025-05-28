@@ -60,9 +60,9 @@ const splitSequenceNA = (str) => {
 let convertedStr = "";
 
 const translateNAtoAA = (arr) => {
+    arr = arr.split(",");
     let splitNaArray = splitSequenceNA(arr[0]);   
-    let splitAaArray = [];  
-    let result;  
+    let convertedStr = "";
     for (let i=0; i < splitNaArray.length; i++) {
       let codon = codonToAminoAcid(splitNaArray[i]);
       convertedStr += codon;

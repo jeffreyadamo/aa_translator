@@ -12,8 +12,8 @@ import {
     HER2_long,
 } from './constants.js';
 
-const translatedAA = translateNAtoAA(HER2_long);
-console.log("Translated AA is", translatedAA)
+/*const translatedAA = translateNAtoAA(HER2_long);
+console.log("Translated AA is", translatedAA)*/
 
 function autoResize(element) {
   element.style.height = 'auto';
@@ -22,16 +22,18 @@ function autoResize(element) {
 
 function transferText() {
   const input = document.getElementById("inputText");
-
-  /*console.log("input value: ", input.value);
-  console.log("");
-  console.log("input NA is: ", HER2_long[0]);
-  console.log("output AA is: ", translatedAA);*/
-
   const output = document.getElementById("outputText");
-  output.value = input.value
+  // Clean and transform input
+  const cleanedInput = input.value.replace(/\s+/g, '').toUpperCase();
+  input.value = cleanedInput;
+  // Translate input
+  const translatedNA = translateNAtoAA(cleanedInput);
+  // Clear and update output
+  output.value = ""; // Clear previous output
+  output.value = translatedNA; // Set new output
   autoResize(output);
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.getElementById("inputText"); // ✅ This is the textarea
