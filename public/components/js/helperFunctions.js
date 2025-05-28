@@ -70,8 +70,8 @@ const translateNAtoAA = (arr) => {
     return convertedStr;
   }
 
-module.exports = { 
-    splitSequenceNA: splitSequenceNA,
-    codonToAminoAcid: codonToAminoAcid,
-    translateNAtoAA: translateNAtoAA,
-}
+export { 
+  splitSequenceNA, 
+  codonToAminoAcid, 
+  translateNAtoAA 
+};
