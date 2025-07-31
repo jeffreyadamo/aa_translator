@@ -33,31 +33,54 @@ app.use(cors());
 app.use(cookieParser());
 app.use(morgan("tiny"));
 app.use(compression());
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-eval'"],
+      connectSrc: ["'self'", "ws:"], // allow WebSocket connections for reload
+    }
+  })
+);
+
 
 // Routes
 //require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
+
 // Create the HTTP server
 const server = http.createServer(app);
 
-// Reload setup - this will need to be removed in production
-reload(app, {
-  verbose: true
-}).then(function (reloadReturned) {
-  const fs = require('fs');
-  fs.watch(path.join(__dirname, 'public/components/views'), { recursive: true }, (eventType, filename) => {
-    console.log(`🔄 HTML file changed: ${filename}`);
-    reloadReturned.reload(); 
-  });
-  
-  server.listen(PORT, () => {
-    console.log('🚀 Server running at http://localhost:' + PORT);
-  });
-}).catch(function (err) {
-  console.error('Reload could not start:', err);
+// loggin to confirm file watching is working
+
+const fs = require('fs');
+
+fs.watch(path.join(__dirname, 'public'), { recursive: true }, (eventType, filename) => {
+  console.log(`🔄 File changed: ${filename}`);
 });
+
+
+
+// Start server
+/* const server = app.listen(PORT, () => {
+  console.log(`🚀 Server listening on http://localhost:${PORT}`);
+}); */ 
+
+// Attach reload and watch the 'public/components/views' folder
+
+// Attach reload to the HTTP server
+reload(server, {
+  watchDir: path.join(__dirname, 'public')
+}).then(() => {
+    server.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  }).catch(err => {
+    console.error('Reload could not start:', err);
+  });
+
+
 
 // Graceful shutdown
 process.on("SIGINT", () => {
