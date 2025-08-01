@@ -19,5 +19,8 @@
 
 ### Phase 2 - multiple frames
 - [x] create 2 more output boxes for frames 2 and 3
-- [ ] edit javascript to remove 1 or 2 nucleic acids from the input string
-- [ ] create additonal steps to translate these new strings to the new output boxes
+- [x] edit javascript to remove 1 or 2 nucleic acids from the input string
+- [x] create additonal steps to translate these new strings to the new output boxes
+- [x] add copy output boxes
+- [x] highlight M's in output
+- [x] add responsive formatting
