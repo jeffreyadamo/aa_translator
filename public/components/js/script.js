@@ -20,13 +20,17 @@ function autoResize(element) {
   element.style.height = element.scrollHeight + 'px';
 }
 
+function highlightM(sequence) {
+  return sequence.replace(/M/g, '<span class="highlight-m">M</span>');
+}
+
 function transferText() {
   const input = document.getElementById("inputText");
   const Frame1output = document.getElementById("outputText");
   const Frame2output = document.getElementById("outputText2");
   const Frame3output = document.getElementById("outputText3");
   // Clean and transform input
-  const cleanedInput = input.value.replace(/\s+/g, '').toUpperCase();
+  const cleanedInput = input.value.trim().replace(/\s+/g, '').toUpperCase();
   input.value = cleanedInput;
 
  // Frames 2 and 3
@@ -38,13 +42,13 @@ function transferText() {
   const translatedNA2 = translateNAtoAA(cleanedInput2);
   const translatedNA3 = translateNAtoAA(cleanedInput3);
   // Clear and update output
-  Frame1output.value = ""; // Clear previous output
-  Frame2output.value = ""; // Clear previous output
-  Frame3output.value = ""; // Clear previous output
+  Frame1output.innerHTML = ""; // Clear previous output
+  Frame2output.innerHTML = ""; // Clear previous output
+  Frame3output.innerHTML = ""; // Clear previous output
 
-  Frame1output.value = translatedNA; // Set new output
-  Frame2output.value = translatedNA2; // Set new output
-  Frame3output.value = translatedNA3; // Set new output
+  Frame1output.innerHTML = highlightM(translatedNA); // Set new output
+  Frame2output.innerHTML = highlightM(translatedNA2); // Set new output
+  Frame3output.innerHTML = highlightM(translatedNA3); // Set new output
 
   autoResize(Frame1output);
   autoResize(Frame2output);
