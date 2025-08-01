@@ -30,6 +30,15 @@ textarea {
   box-sizing: border-box;
 }
 
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
 /* Buttons */
 button {
   margin-top: 10px;

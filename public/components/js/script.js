@@ -83,6 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+window.addEventListener("resize", () => {
+  const Frame1output = document.getElementById("outputText");
+  const Frame2output = document.getElementById("outputText2");
+  const Frame3output = document.getElementById("outputText3");
+
+  autoResize(Frame1output);
+  autoResize(Frame2output);
+  autoResize(Frame3output);
+});
+
+
 function copyOutput1() {
   const outputText = document.getElementById("outputText").textContent;
   navigator.clipboard.writeText(outputText)
