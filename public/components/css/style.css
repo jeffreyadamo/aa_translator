@@ -38,3 +38,9 @@ button {
 button:hover {
   background-color: #005fa3;
 }
+
+.highlight-m {
+  background-color: yellow;
+  font-weight: bold;
+}
+
