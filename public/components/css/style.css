@@ -1,15 +1,20 @@
+/* General Page Styling */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f4f9;
   padding: 40px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+/* Labels */
 label {
   font-weight: bold;
   margin-top: 20px;
   display: block;
 }
 
+/* Input Textarea */
 textarea {
   width: 100%;
   max-width: 600px;
@@ -18,15 +23,18 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  font-family: monospace;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   resize: none;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
+/* Buttons */
 button {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #0078D7;
   color: white;
   border: none;
@@ -39,42 +47,42 @@ button:hover {
   background-color: #005fa3;
 }
 
+/* Highlighted Amino Acids */
 .highlight-m {
   background-color: yellow;
   font-weight: bold;
 }
 
-textarea, pre {
-  font-family: monospace; /* or match the exact font used in input */
-  font-size: 16px;         /* match the size */
-  line-height: 1;        /* optional: improves readability */
-}
-
-
+/* Output Box Styling */
 .output-box {
   white-space: pre-wrap;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 10px;
-  width: 100%;
-  min-height: 20px;
-  font-family: monospace;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-}
-
-pre {
-  margin: 0;                /* Remove default margin */
-  padding: 10px;            /* Set consistent padding */
-  white-space: pre-wrap;    /* Enable wrapping */
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-family: monospace;
   font-size: 16px;
-  border: 1px solid #ccc;   /* Optional: for visual clarity */
-  box-sizing: border-box;   /* Ensures padding is included in width */
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.frame-container {
+  display: block; /* Stack frames vertically */
+  margin-top: 20px;
+}
+
+.frame {
+  margin-bottom: 30px; /* Add spacing between frames */
 }
 
 
-
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .frame {
+    flex: 1 1 100%;
+  }
+}

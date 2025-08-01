@@ -75,4 +75,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   autoResize(inputField);
+
+  document.getElementById("copyBtn1").addEventListener("click", copyOutput1);
+  document.getElementById("copyBtn2").addEventListener("click", copyOutput2);
+  document.getElementById("copyBtn3").addEventListener("click", copyOutput3);
+
 });
+
+
+function copyOutput1() {
+  const outputText = document.getElementById("outputText").textContent;
+  navigator.clipboard.writeText(outputText)
+    .then(() => {
+      alert("Output copied to clipboard!");
+    })
+    .catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+}
+
+function copyOutput2() {
+  const outputText = document.getElementById("outputText2").textContent;
+  navigator.clipboard.writeText(outputText)
+    .then(() => {
+      alert("Output copied to clipboard!");
+    })
+    .catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+}
+
+function copyOutput3() {
+  const outputText = document.getElementById("outputText3").textContent;
+  navigator.clipboard.writeText(outputText)
+    .then(() => {
+      alert("Output copied to clipboard!");
+    })
+    .catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+}
+
