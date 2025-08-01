@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Auto-Resizing Input</title>
+  <title>NA to AA</title>
   <link rel="stylesheet" href="/components/css/style.css">
 </head>
 <body>
 
   <h2>Nucleic Acid to Amino Acid Translator</h2>
 
-  <label for="inputText">Input Text:</label>
+  <label for="inputText">Input Nucleic Acid Sequence:</label>
   <textarea id="inputText" placeholder="Paste or type something..."></textarea>
-
+  <br>
   <button id="submitBtn">Submit</button>
 
-
-  <label for="outputText">Output Text:</label>
+  <label for="outputText">Frame 1:</label>
   <textarea id="outputText" readonly></textarea>
+  
+  <label for="outputText2">Frame 2:</label>
+  <textarea id="outputText2" readonly></textarea>
+  
+  <label for="outputText3">Frame 3:</label>
+  <textarea id="outputText3" readonly></textarea>
 
   <script type="module" src="/components/js/script.js"></script>
   <script src="/reload/reload.js"></script>

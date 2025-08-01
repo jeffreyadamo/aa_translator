@@ -1,5 +1,8 @@
 const codonToAminoAcid = (codon) => {
   let input = codon.toString()
+  if (input.length <3) {
+    return "-"; // Return a placeholder for invalid codons
+  }
   switch (codon) {
       case "GCT": case "GCC": case "GCA": case "GCG":
           return "A"; // Alanine
@@ -56,8 +59,6 @@ const splitSequenceNA = (str) => {
     }
     return result
   }
-
-let convertedStr = "";
 
 const translateNAtoAA = (arr) => {
     arr = arr.split(",");
