@@ -58,9 +58,14 @@ button:hover {
 
 /* Highlighted Amino Acids */
 .highlight-m {
-  background-color: yellow;
+  background-color: rgb(7, 243, 255);
   font-weight: bold;
 }
+.highlight-stop {
+  color: red;
+  font-weight: bold;
+}
+
 
 /* Output Box Styling */
 .output-box {

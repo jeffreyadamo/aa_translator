@@ -24,3 +24,9 @@
 - [x] add copy output boxes
 - [x] highlight M's in output
 - [x] add responsive formatting
+
+### Phase 3 - 
+- [x] create function for reading longest ORF
+- [ ] display longest ORF found beside the "Copy Output" button
+- [ ] add length of ORF next to ORF
+- [ ] "display more ORFs" text to append next 3 ORFs

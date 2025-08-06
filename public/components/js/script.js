@@ -24,6 +24,16 @@ function highlightM(sequence) {
   return sequence.replace(/M/g, '<span class="highlight-m">M</span>');
 }
 
+function highlightStop(sequence) {
+  return sequence.replace(/\*/g,  '<span class="highlight-stop">*</span>');
+}
+
+function applyAllHighlights(sequence) {
+  let highlighted = highlightM(sequence);
+  highlighted = highlightStop(highlighted);
+  return highlighted;
+}
+
 function transferText() {
   const input = document.getElementById("inputText");
   const Frame1output = document.getElementById("outputText");
@@ -41,14 +51,15 @@ function transferText() {
   const translatedNA = translateNAtoAA(cleanedInput);
   const translatedNA2 = translateNAtoAA(cleanedInput2);
   const translatedNA3 = translateNAtoAA(cleanedInput3);
+
   // Clear and update output
   Frame1output.innerHTML = ""; // Clear previous output
   Frame2output.innerHTML = ""; // Clear previous output
   Frame3output.innerHTML = ""; // Clear previous output
 
-  Frame1output.innerHTML = highlightM(translatedNA); // Set new output
-  Frame2output.innerHTML = highlightM(translatedNA2); // Set new output
-  Frame3output.innerHTML = highlightM(translatedNA3); // Set new output
+  Frame1output.innerHTML = applyAllHighlights(translatedNA); // Set new output
+  Frame2output.innerHTML = applyAllHighlights(translatedNA2); // Set new output
+  Frame3output.innerHTML = applyAllHighlights(translatedNA3); // Set new output
 
   autoResize(Frame1output);
   autoResize(Frame2output);
